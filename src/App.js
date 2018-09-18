@@ -6,16 +6,17 @@ import AddTodoModel from './Components/AddTodoModel/AddTodoModel';
 
 
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faBars, faClock, faHourglassHalf, faTimes } from '@fortawesome/free-solid-svg-icons'
+import { faBars, faClock, faHourglassHalf, faTimes, faAngleDown, faAngleUp } from '@fortawesome/free-solid-svg-icons'
+// import Collapseable from './Components/Collapseable/Collapseable';
 
-library.add(faBars, faClock, faHourglassHalf, faTimes)
+library.add(faBars, faClock, faHourglassHalf, faTimes, faAngleDown, faAngleUp)
 
 
 class App extends Component {
   render() {
     return (
       <div>
-           <Navbar /> 
+        <Navbar /> 
        <h1 style={{color: "#fff"}}>Todo App:</h1>
        <Todos />
        <AddTodoModel />

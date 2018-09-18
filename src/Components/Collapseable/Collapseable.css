@@ -1,0 +1,10 @@
+.description-icon {
+    color: #fff;
+
+}
+
+.description-icon:hover {
+    color: rgb(195, 194, 194);
+    font-size: 25px;
+    cursor: pointer;
+}

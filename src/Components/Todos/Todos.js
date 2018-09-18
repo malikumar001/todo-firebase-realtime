@@ -25,7 +25,13 @@ state = {
     time: '12:30',
     uptime: '1',
     completed: false
-  }
+  },
+  {
+  _id:4,
+    title: 'College work',
+    time: '12:30',
+    uptime: '1',
+    completed: false}
   ]
 };
 
