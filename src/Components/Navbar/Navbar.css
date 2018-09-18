@@ -1,0 +1,13 @@
+@media screen and (min-width: 992px) {
+    .sidedrawer {
+        display: none;
+    }
+
+    .brand-logo{
+        margin-left: 20px;
+    }
+  }
+
+
+  
+  
