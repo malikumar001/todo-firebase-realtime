@@ -44,11 +44,14 @@ body {
 .todo-container {
     margin: auto;
     width: 70%;
+    
 }
 
 
 .sub-container {
     background: #744AB0;
+    border-radius: 15px 15px 0px 0px;
+    margin: 10px 0px;
 }
 
 .timer-container {
@@ -80,11 +83,7 @@ body {
     color: #fff;
 } */
 
-.description {
-    font-size: 25px;
-    cursor: pointer;
-    margin-left: 10px;
-}
+
 
 /* .description:hover {
     color: rgb(195, 194, 194);
