@@ -24,7 +24,7 @@ body {
 
     .text{
         margin-left: 5px;
-         font-size: 20px;
+         font-size: 15px;
          color: #fff;
      }
 
@@ -65,13 +65,13 @@ body {
 }
 .cross-icon {
     color: #fff;
-    font-size: 25px;
+    font-size: 20px;
 }
 
 
 .cross-icon:hover {
     color: rgb(195, 194, 194);
-    font-size: 25px;
+    font-size: 20px;
     cursor: pointer;
 }
 /* .clock-icon {

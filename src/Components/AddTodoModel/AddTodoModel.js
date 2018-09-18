@@ -10,12 +10,19 @@ import TodoForm from '../Todos/TodoForm/TodoForm';
 
 class AddTodoModel extends React.Component {
   state = {
-    open: false,
+    data: {
+      title: '',
+      description: ''
+    }
   };
 
-  handleClickOpen = () => {
-    this.setState({ open: true });
-  };
+
+onChange = (e) => {
+      this.setState({ data: { ...this.state.data, [e.target.name]: e.target.value } });
+}
+
+
+ 
 
   handleClose = () => {
     this.setState({ open: false });
@@ -26,33 +33,61 @@ class AddTodoModel extends React.Component {
 
     return (
       <div>
-        
+
         <Dialog
           fullScreen={fullScreen}
-          open={this.state.open}
+          open={this.props.open}
           onClose={this.handleClose}
           aria-labelledby="responsive-dialog-title"
         >
           <DialogTitle id="responsive-dialog-title">{"What do you want to do today?"}</DialogTitle>
 
+          <form>
 
-          <TodoForm />
+            <div>
+              <div class="row">
+                <div class="col s12">
+                  <div class="row">
+                    <div class="input-field col s12 ">
+                      <i class="material-icons prefix blue-text">title</i>
+                      <input type="text" onChange={this.onChange} value={this.state.data.title} name="title" id="autocomplete-input" class="blue-text autocomplete" />
+                      <label for="autocomplete-input">Enter todo</label>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col s12">
+                  <div class="row">
+                    <div class="input-field col s12 ">
+                      <i class="material-icons prefix blue-text">description</i>
+                      <input type="text"  onChange={this.onChange} value={this.state.data.description} name="description" id="autocomplete-input" class="blue-text autocomplete" />
+                      <label for="autocomplete-input">Enter short description</label>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            <DialogActions>
+
+              <Button onClick={this.props.handleFormClose} color="primary">
+                Close
+</Button>
+              <Button onClick={() => this.props.handleAdd(this.state.data)} variant="contained" color="primary" autoFocus>
+                Save
+</Button>
+
+            </DialogActions>
 
 
-          <DialogActions>
+          </form>
 
-            <Button onClick={this.handleClose} color="primary">
-              Close
-            </Button>
-            <Button onClick={this.handleClose} variant="contained" color="primary" autoFocus>
-              Save
-            </Button>
 
-          </DialogActions>
+
         </Dialog>
+        <TodoBtn openPopup={this.props.handleClickOpen} />
 
-        <TodoBtn openPopup={this.handleClickOpen} />
-        
       </div>
     );
   }

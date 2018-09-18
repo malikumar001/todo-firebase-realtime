@@ -18,7 +18,9 @@ class Collapseable extends Component {
    trigger={<FontAwesomeIcon icon='angle-down' className="description-icon" />}
    triggerWhenOpen={<FontAwesomeIcon icon='angle-up' className="description-icon" />}
 >
-        <h2>todo description goes here!</h2>
+        <p>todo description goes here!todo description goes here!todo description goes here!
+        todo 
+        </p>
       </Collapsible>
 
       </div>
