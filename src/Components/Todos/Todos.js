@@ -132,7 +132,7 @@ handleClickOpen = () => {
 
           <Message showMessage={this.state.showErrorMessage}
                    handleClose={this.handleClose}
-                   removed="Please enter both title and description!"
+                   removed="Please enter both TITLE and DESCRIPTION"
           />
           
       </div>

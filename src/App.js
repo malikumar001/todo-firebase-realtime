@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 
 import Navbar from './Components/Navbar/Navbar';
 import Todos from './Components/Todos/Todos';
-import AddTodoModel from './Components/AddTodoModel/AddTodoModel';
 
 
 import { library } from '@fortawesome/fontawesome-svg-core'
