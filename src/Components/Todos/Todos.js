@@ -1,41 +1,22 @@
 import React, { Component } from 'react';
+import _ from 'lodash';
 import Todo from './Todo/Todo';
+
 import Message from '../Message/Message';
+import firebase from '../../config/firebase';
 import AddTodoModel from '../AddTodoModel/AddTodoModel';
 
+import './Todos.css';
+
+import { connect } from "react-redux";
+import * as actions from "../../Actions/index";
+import { faCommentsDollar } from '@fortawesome/free-solid-svg-icons';
+import Loader from '../loader/Loader';
 
 class Todos extends Component {
 
 state = {
- todos: [{
-    _id: 1, 
-    title: 'Go for a morning walk and Playing Games',
-    time: '12:30',
-    uptime: '1',
-    completed: false
-  },
-  {
-    _id: 2,
-    title: 'Dinner and some exercise',
-    time: '12:30',
-    uptime: '1',
-    completed: false
-  },
-  {
-    _id:3,
-    title: 'College work',
-    time: '12:30',
-    uptime: '1',
-    completed: false
-  },
-  {
-  _id:4,
-    title: 'College work',
-    time: '12:30',
-    uptime: '1',
-    completed: false},
-    
-  ],
+  array: [],
   showDeleteMessage: false,
   showAddMessage: false,
   showErrorMessage: false,
@@ -66,7 +47,6 @@ validate = (data) => {
   }
 
 
-
 handleAdd = (data) => {
 
 
@@ -74,9 +54,15 @@ handleAdd = (data) => {
   this.setState({ errors });
 
   if (Object.keys(errors).length === 0) {
-  const newData = [...this.state.todos, data]
-  this.setState({todos: newData});
+
+    const { addToDo } = this.props
+const id = this.props.data.length;
+
+    addToDo(data, id);
+    
   this.setState({ showAddMessage: true, open: false });
+
+
 }else {
    this.showErrorMessage()
 }
@@ -89,7 +75,6 @@ handleFormClose = () => {
 }
 
 handleClose = (event, reason) => {
-  console.log(reason);
   if (reason === 'clickaway') {
     return;
   }
@@ -103,21 +88,29 @@ handleClickOpen = () => {
 
 
   render() {
-
-
+    this.props.fetchTodos();
     return (
       <div>
         {/* <WorkCompleted /> */}
-
-       {this.state.todos.map(todo =>  <Todo key={todo._id} 
-                                 todo={todo} 
-                                 handleDelete={this.handleDelete}
-                           />)}
+        <p className="heading">Todo App:</p>
+  
+{
+  this.props.data.length !== 0 ? (
+    
+           this.props.data.map(todo =>  <Todo key={todo._id} 
+                                     todo={todo} 
+                                     handleDelete={this.handleDelete}
+                               />)
+    
+                               
+                               ) : <Loader /> 
+}
        <AddTodoModel handleAdd={this.handleAdd} open={this.state.open}
                       handleClickOpen={this.handleClickOpen}
                       handleFormClose={this.handleFormClose}
 
        />
+
         
           <Message showMessage={this.state.showDeleteMessage}
                    handleClose={this.handleClose}
@@ -140,4 +133,14 @@ handleClickOpen = () => {
   }
 }
 
-export default Todos;
+
+
+
+const mapStateToProps = ({ data }) => {
+  return {
+    data
+  };
+};
+
+export default connect(mapStateToProps, actions)(Todos);
+

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-
+import Date from '../Date/Date';
 import SideNav from './SideNav/SideNav';
 import './Navbar.css';
 
@@ -33,12 +33,10 @@ class Navbar extends Component {
             </li> 
    </ul>
 
-      <a href="umar.html"  className="brand-logo">Logo</a>
-      <ul id="nav-mobile" className="right hide-on-med-and-down">
-        <li><a href="sass.html">Sass</a></li>
-        <li><a href="badges.html">Components</a></li>
-        <li><a href="collapsible.html">JavaScript</a></li>
-      </ul>
+      <a href="/"  className="brand-logo logo-title">Todo App</a>
+
+      <Date />
+      
     </div>
   </nav>
 

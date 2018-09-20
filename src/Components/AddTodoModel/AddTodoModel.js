@@ -7,6 +7,8 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 import withMobileDialog from '@material-ui/core/withMobileDialog';
 import TodoBtn from '../TodoBtn/TodoBtn';
 
+
+
 class AddTodoModel extends React.Component {
   state = {
     data: {
@@ -15,17 +17,25 @@ class AddTodoModel extends React.Component {
     }
   };
 
-
 onChange = (e) => {
       this.setState({ data: { ...this.state.data, [e.target.name]: e.target.value } });
 }
 
-
- 
-
   handleClose = () => {
     this.setState({ open: false });
   };
+
+handleAdd = () => {
+  this.props.handleAdd(this.state.data);
+  this.setState({ data: { 
+                            title: '',
+                             description: ''
+                             } });
+
+
+
+}
+
 
   render() {
     const { fullScreen } = this.props;
@@ -72,18 +82,14 @@ onChange = (e) => {
 
               <Button onClick={this.props.handleFormClose} color="primary">
                 Close
-</Button>
-              <Button onClick={() => this.props.handleAdd(this.state.data)} variant="contained" color="primary" autoFocus>
+                </Button>
+              <Button onClick={this.handleAdd} variant="contained" color="primary" autoFocus>
                 Save
-</Button>
+                </Button>
 
             </DialogActions>
 
-
           </form>
-
-
-
         </Dialog>
         <TodoBtn openPopup={this.props.handleClickOpen} />
 
