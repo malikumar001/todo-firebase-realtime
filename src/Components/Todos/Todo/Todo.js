@@ -19,7 +19,7 @@ class Todo extends Component {
     </p>
               </div>
               <div className="flexer"></div>
-              <div onClick={() => this.props.handleDelete(todo._id)}><FontAwesomeIcon className="cross-icon" icon="times"/></div>
+              <div onClick={() => this.props.handleDelete(todo.id)}><FontAwesomeIcon className="cross-icon" icon="times"/></div>
 
               
           </div>

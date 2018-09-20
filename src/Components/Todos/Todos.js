@@ -26,10 +26,14 @@ class Todos extends Component {
   }
 
   handleDelete = (id) => {
-    const todos = [...this.state.todos];
-    const undeletedTodos = todos.filter(todo => todo._id !== id);
-    this.setState({ todos: undeletedTodos });
-    this.setState({ showDeleteMessage: true });
+    
+console.log(id);
+   this.props.RemoveTodo(id);
+   
+    // const todos = [...this.state.todos];
+    // const undeletedTodos = todos.filter(todo => todo._id !== id);
+    // this.setState({ todos: undeletedTodos });
+    // this.setState({ showDeleteMessage: true });
 
   }
 

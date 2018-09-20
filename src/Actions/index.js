@@ -6,6 +6,7 @@ db.settings({
     timestampsInSnapshots: true
 });
 
+
 export const fetchTodos = () => dispatch => {
     const array1 = [];
     db.collection("todos").get().then(function (querySnapshot) {
@@ -18,12 +19,21 @@ export const fetchTodos = () => dispatch => {
 }
 
 
-export const addToDo = (data, id) => async dispatch => {
+export const addToDo = (data, id) =>  dispatch => {
     const todoRef = db.collection("todos")
       todoRef.doc(`todo_${id}`).set({
         id,
         title: data.title,
         description: data.description
+    });
+};
+
+
+export const RemoveTodo = (id) =>  dispatch => {
+    db.collection("todos").doc(`todo_${id}`).delete().then(function() {
+        console.log("Document successfully deleted!");
+    }).catch(function(error) {
+        console.error("Error removing document: ", error);
     });
 };
 
