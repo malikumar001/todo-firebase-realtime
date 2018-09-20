@@ -1,7 +1,7 @@
 body {
     background: rgba(127, 163, 233, 0.459);
+    
 }
-
 
 @media screen and (max-width: 992px) {
     #title-todo {
@@ -82,19 +82,3 @@ body {
     font-size: 20px;
     cursor: pointer;
 }
-/* .clock-icon {
-   margin-left: 15px;
-} */
-
-/* #title-todo {
-    font-size: 25px;
-    color: #fff;
-} */
-
-
-
-/* .description:hover {
-    color: rgb(195, 194, 194);
-    font-size: 25px;
-    cursor: pointer;
-} */

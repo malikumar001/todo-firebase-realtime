@@ -7,16 +7,12 @@ import {connect} from 'react-redux';
 
 import * as actions from './Actions/index';
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faBars, faClock, faHourglassHalf, faTimes, faAngleDown, faAngleUp } from '@fortawesome/free-solid-svg-icons'
-// import Message from './Components/Message/Message';
-// import Collapseable from './Components/Collapseable/Collapseable';
+import { faBars, faClock, faHourglassHalf, faTimes, faAngleDown, faAngleUp,  faCalendarAlt } from '@fortawesome/free-solid-svg-icons'
 
-library.add(faBars, faClock, faHourglassHalf, faTimes, faAngleDown, faAngleUp)
+library.add(faBars, faClock, faHourglassHalf, faTimes, faAngleDown, faAngleUp, faCalendarAlt)
 
 
 class App extends Component {
-
-  
 
   render() {
     return (

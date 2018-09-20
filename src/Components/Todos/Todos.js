@@ -1,139 +1,128 @@
 import React, { Component } from 'react';
-import _ from 'lodash';
 import Todo from './Todo/Todo';
 
 import Message from '../Message/Message';
-import firebase from '../../config/firebase';
 import AddTodoModel from '../AddTodoModel/AddTodoModel';
 
 import './Todos.css';
 
 import { connect } from "react-redux";
 import * as actions from "../../Actions/index";
-import { faCommentsDollar } from '@fortawesome/free-solid-svg-icons';
 import Loader from '../loader/Loader';
 
 class Todos extends Component {
 
-state = {
-  array: [],
-  showDeleteMessage: false,
-  showAddMessage: false,
-  showErrorMessage: false,
-  open: false,
-  errors: {}
+  state = {
+    array: [],
+    showDeleteMessage: false,
+    showAddMessage: false,
+    showErrorMessage: false,
+    open: false,
+    errors: {}
+  };
 
-
-};
-
-showErrorMessage = () => {
-    this.setState({showErrorMessage: true})
-}
+  showErrorMessage = () => {
+    this.setState({ showErrorMessage: true })
+  }
 
   handleDelete = (id) => {
     const todos = [...this.state.todos];
     const undeletedTodos = todos.filter(todo => todo._id !== id);
-    this.setState({todos: undeletedTodos });
+    this.setState({ todos: undeletedTodos });
     this.setState({ showDeleteMessage: true });
-    
-}
 
-validate = (data) => {
-  const errors = {};
+  }
+
+  validate = (data) => {
+    const errors = {};
     if (!data.title) errors.title = "Enter Todo title!";
     if (!data.description) errors.description = "Proper description is required!";
-    
+
     return errors;
   }
 
+  handleAdd = (data) => {
 
-handleAdd = (data) => {
+    const errors = this.validate(data);
+    this.setState({ errors });
 
+    if (Object.keys(errors).length === 0) {
 
-  const errors = this.validate(data);
-  this.setState({ errors });
+      const { addToDo } = this.props
+      const id = this.props.data.length;
 
-  if (Object.keys(errors).length === 0) {
+      addToDo(data, id);
 
-    const { addToDo } = this.props
-const id = this.props.data.length;
-
-    addToDo(data, id);
-    
-  this.setState({ showAddMessage: true, open: false });
+      this.setState({ showAddMessage: true, open: false });
 
 
-}else {
-   this.showErrorMessage()
-}
-  
-}
+    } else {
+      this.showErrorMessage()
+    }
 
-handleFormClose = () => {
-  this.setState({ open: false });
-
-}
-
-handleClose = (event, reason) => {
-  if (reason === 'clickaway') {
-    return;
   }
 
-  this.setState({ showAddMessage: false, showDeleteMessage: false, showErrorMessage: false });
-};
+  handleFormClose = () => {
+    this.setState({ open: false });
 
-handleClickOpen = () => {
-  this.setState({ open: true });
-};
+  }
+
+  handleClose = (event, reason) => {
+    if (reason === 'clickaway') {
+      return;
+    }
+
+    this.setState({ showAddMessage: false, showDeleteMessage: false, showErrorMessage: false });
+  };
+
+  handleClickOpen = () => {
+    this.setState({ open: true });
+  };
 
 
   render() {
     this.props.fetchTodos();
     return (
       <div>
-        {/* <WorkCompleted /> */}
-        <p className="heading">Todo App:</p>
-  
-{
-  this.props.data.length !== 0 ? (
-    
-           this.props.data.map(todo =>  <Todo key={todo._id} 
-                                     todo={todo} 
-                                     handleDelete={this.handleDelete}
-                               />)
-    
-                               
-                               ) : <Loader /> 
-}
-       <AddTodoModel handleAdd={this.handleAdd} open={this.state.open}
-                      handleClickOpen={this.handleClickOpen}
-                      handleFormClose={this.handleFormClose}
+        <p className="heading">Record Your Tasks</p>
 
-       />
+        {
+          this.props.data.length !== 0 ? (
 
-        
-          <Message showMessage={this.state.showDeleteMessage}
-                   handleClose={this.handleClose}
-                   removed="Todo Removed Successfully!"
-          />
+            this.props.data.map(todo => <Todo key={todo._id}
+              todo={todo}
+              handleDelete={this.handleDelete}
+            />)
 
 
-          <Message showMessage={this.state.showAddMessage}
-                   handleClose={this.handleClose}
-                   removed="Todo Added Successfully!"
-          />
+          ) : <Loader />
+        }
+        <AddTodoModel handleAdd={this.handleAdd} open={this.state.open}
+          handleClickOpen={this.handleClickOpen}
+          handleFormClose={this.handleFormClose}
 
-          <Message showMessage={this.state.showErrorMessage}
-                   handleClose={this.handleClose}
-                   removed="Please enter both TITLE and DESCRIPTION"
-          />
-          
+        />
+
+        <Message showMessage={this.state.showDeleteMessage}
+          handleClose={this.handleClose}
+          removed="Todo Removed Successfully!"
+        />
+
+
+        <Message showMessage={this.state.showAddMessage}
+          handleClose={this.handleClose}
+          removed="Todo Added Successfully!"
+        />
+
+        <Message showMessage={this.state.showErrorMessage}
+          handleClose={this.handleClose}
+          removed="Please enter both TITLE and DESCRIPTION"
+        />
+
       </div>
     );
   }
 }
-
-
 
 
 const mapStateToProps = ({ data }) => {

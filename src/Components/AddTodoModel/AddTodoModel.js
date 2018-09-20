@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
-import DialogActions from '@material-ui/core/DialogActions';  
+import DialogActions from '@material-ui/core/DialogActions';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import withMobileDialog from '@material-ui/core/withMobileDialog';
 import TodoBtn from '../TodoBtn/TodoBtn';
@@ -17,25 +17,24 @@ class AddTodoModel extends React.Component {
     }
   };
 
-onChange = (e) => {
-      this.setState({ data: { ...this.state.data, [e.target.name]: e.target.value } });
-}
+  onChange = (e) => {
+    this.setState({ data: { ...this.state.data, [e.target.name]: e.target.value } });
+  }
 
   handleClose = () => {
     this.setState({ open: false });
   };
 
-handleAdd = () => {
-  this.props.handleAdd(this.state.data);
-  this.setState({ data: { 
-                            title: '',
-                             description: ''
-                             } });
+  handleAdd = () => {
+    this.props.handleAdd(this.state.data);
+    this.setState({
+      data: {
+        title: '',
+        description: ''
+      }
+    })
 
-
-
-}
-
+  }
 
   render() {
     const { fullScreen } = this.props;
@@ -69,7 +68,7 @@ handleAdd = () => {
                   <div class="row">
                     <div class="input-field col s12 ">
                       <i class="material-icons prefix blue-text">description</i>
-                      <input type="text"  onChange={this.onChange} value={this.state.data.description} name="description" id="autocomplete-input" class="blue-text autocomplete" />
+                      <input type="text" onChange={this.onChange} value={this.state.data.description} name="description" id="autocomplete-input" class="blue-text autocomplete" />
                       <label for="autocomplete-input">Enter short description</label>
                     </div>
                   </div>
@@ -92,8 +91,7 @@ handleAdd = () => {
           </form>
         </Dialog>
         <TodoBtn openPopup={this.props.handleClickOpen} />
-
-      </div>
+          </div>
     );
   }
 }

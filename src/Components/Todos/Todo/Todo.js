@@ -25,10 +25,11 @@ class Todo extends Component {
           </div>
 
           <div className="flex-container timer-container">
+           
             <span className="time"><FontAwesomeIcon className="text" icon="clock"/><span className="text">11:30am</span></span>
             <span className="time"><FontAwesomeIcon className="text" icon="hourglass-half"/><span className="text">2h</span></span>
           
-             <span className="description"><Collapseable /></span>
+             <span className="description"><Collapseable description={todo.description}/></span>
           </div>
 
           </div>

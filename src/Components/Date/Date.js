@@ -1,20 +1,22 @@
-import React, { Component } from 'react';
+const date = new Date()
 
-
-
-class Date extends Component {
-
+const monthDate =  date.getDate();
     
-    render() {
-        return (
-            <ul id="nav-mobile" className="right hide-on-med-and-down">
-                {/* <li><a href="/">{`${date} ${monthName}, ${year}`}</a></li> */}
-<li><a href="/">Date will go here</a></li>
-            </ul>
-        );
-    }
+    var months = ["January", "February", "March",
+                   "April", "May", "June", "July",
+                   "August", "September", "October",
+                    "November", "December"];
+    const monthName = months[date.getMonth()];
+    const year = date.getFullYear()
+
+   
+
+export default{
+    monthDate,
+    monthName,
+    year
 }
 
 
 
-export default Date;
+
