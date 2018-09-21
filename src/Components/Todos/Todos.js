@@ -17,6 +17,7 @@ class Todos extends Component {
     showDeleteMessage: false,
     showAddMessage: false,
     showErrorMessage: false,
+    // showDeleteMessage: false,
     open: false,
     errors: {}
   };
@@ -30,10 +31,11 @@ class Todos extends Component {
 console.log(id);
    this.props.RemoveTodo(id);
    
+   this.setState({ showDeleteMessage: true });
+
     // const todos = [...this.state.todos];
     // const undeletedTodos = todos.filter(todo => todo._id !== id);
     // this.setState({ todos: undeletedTodos });
-    // this.setState({ showDeleteMessage: true });
 
   }
 
@@ -122,6 +124,8 @@ console.log(id);
           handleClose={this.handleClose}
           removed="Please enter both TITLE and DESCRIPTION"
         />
+
+       
 
       </div>
     );

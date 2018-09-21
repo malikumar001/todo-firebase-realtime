@@ -3,7 +3,11 @@ import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
 import List from '@material-ui/core/List';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
 import Divider from '@material-ui/core/Divider';
+
+import date from '../../Date/Date';
 
 const styles = {
   list: {
@@ -33,10 +37,11 @@ class SideNav extends React.Component {
     const { classes } = this.props;
 
     const sideList = (
-      <div className={classes.list}>
-        <List>Umar</List>
+      <div style={{background: 'red'}} className={classes.list}>
+        <List style={{color: '#fff', fontSize: '18px', textAlign: 'center'}}><FontAwesomeIcon
+                  style={{ fontSize: '30px', marginRight: '10px' }}
+                  icon="calendar-alt" />{`${date.monthDate} ${date.monthName} ${date.year}`}</List>
         <Divider />
-        <List>Umar</List>
       </div>
     );
 

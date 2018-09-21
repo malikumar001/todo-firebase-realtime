@@ -17,7 +17,7 @@ const Loader = ({classes})  =>  {
   return (
     <div className="loader">
       
-      <CircularProgress className={classes.progress} size={75} style={{ color: purple[500] }} thickness={7} />
+      <CircularProgress className={classes.progress} size={50} style={{ color: purple[500] }} thickness={7} />
 
     </div>
   );
