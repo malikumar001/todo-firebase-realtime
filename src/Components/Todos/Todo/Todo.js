@@ -38,7 +38,7 @@ handleCheck = (e) => {
                     onChange={this.handleCheck}
                     checked={this.props.todo.completed}
                     className="filled-in blue-text text-darken-2" />
-                 {this.props.todo.completed ? ( 
+                    {this.props.todo.completed ? ( 
                     <span id="title-todo-line">{todo.title}</span>
                  ) : (
                     <span>
@@ -52,8 +52,8 @@ handleCheck = (e) => {
                  )}
                 </label>
               </p>
-
-                  <span className="description"><Collapseable description={todo.description} /></span>
+                  
+                  {todo.completed ?  undefined :  <span className="description"><Collapseable description={todo.description} /></span> }
             </div>
 
             <div className="flexer"></div>
