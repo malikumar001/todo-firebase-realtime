@@ -19,21 +19,47 @@ export const fetchTodos = () => dispatch => {
 }
 
 
-export const addToDo = (data, id) =>  dispatch => {
+export const addToDo = (data, id) => dispatch => {
     const todoRef = db.collection("todos")
-      todoRef.doc(`todo_${id}`).set({
+    todoRef.doc(`todo_${id}`).set({
         id,
         title: data.title,
-        description: data.description
+        description: data.description,
+        completed: false
     });
 };
 
 
-export const RemoveTodo = (id) =>  dispatch => {
-    db.collection("todos").doc(`todo_${id}`).delete().then(function() {
+export const RemoveTodo = (id) => dispatch => {
+    db.collection("todos").doc(`todo_${id}`).delete().then(function () {
         console.log("Document successfully deleted!");
-    }).catch(function(error) {
+    }).catch(function (error) {
         console.error("Error removing document: ", error);
     });
 };
+
+
+
+export const UpdateTodo = (data, value) => dispatch => {
+        debugger;
+    db.collection("todos").doc(`todo_${data.id}`).set({
+        id: data.id,
+        title: data.title,
+        description: data.description,
+        completed: value
+    })
+        .then(function () {
+            console.log("Document successfully written!");
+        })
+        .catch(function (error) {
+            console.error("Error writing document: ", error);
+        });
+
+
+};
+
+
+
+
+
 

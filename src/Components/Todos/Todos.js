@@ -26,6 +26,18 @@ class Todos extends Component {
     this.setState({ showErrorMessage: true })
   }
 
+
+
+
+// handleUpdate = (todo, completed) => {
+//   debugger
+   
+//      debugger
+// }
+
+
+
+
   handleDelete = (id) => {
     
 console.log(id);
@@ -68,6 +80,9 @@ console.log(id);
 
   }
 
+
+
+
   handleFormClose = () => {
     this.setState({ open: false });
 
@@ -98,6 +113,7 @@ console.log(id);
             this.props.data.map(todo => <Todo key={todo._id}
               todo={todo}
               handleDelete={this.handleDelete}
+              handleUpdate={this.handleUpdate}
             />)
 
 

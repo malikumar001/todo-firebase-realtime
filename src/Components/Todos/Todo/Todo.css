@@ -14,6 +14,14 @@ body {
          font-size: 15px;
          color: #fff;
      }
+
+     #title-todo-line {
+        font-size: 20px;
+        color: rgb(165, 165, 165);
+        text-decoration: line-through;
+        text-decoration-style: solid;
+
+     }
 }
 
 @media screen and (min-width: 992px) {
@@ -28,17 +36,19 @@ body {
          color: #fff;
      }
 
-}
+     #title-todo-line {
+        font-size: 30px;
+        color: rgb(165, 165, 165);
+        text-decoration: line-through;
+        text-decoration-style: solid;
+     }
 
+}
 
 .flex-container {
     display: flex;
-    padding: 10px;
+    padding: 5px;
 
-}
-
-.time{ 
-    margin-left: 30px;
 }
 
 .todo-container {
@@ -47,38 +57,34 @@ body {
     
 }
 
-
 .sub-container {
+    
     background: #744AB0;
-    border-radius: 15px 15px 0px 0px;
+    border-radius: 10px 10px 0px 0px;
     margin: 10px 0px;
-  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+    border-bottom: 5px solid #f44336;
+
 
 }
 
 .sub-container:hover {
     background: rgb(139, 94, 202);
-    
+    border-bottom: 5px solid orange;
 
-}
-
-.timer-container {
-    
-    border-bottom: 5px solid #f44336;
-    
 }
 
 .flexer {
     flex: 1;
 }
+
 .cross-icon {
     color: #fff;
-    font-size: 20px;
+    font-size: 15px;
 }
 
-
 .cross-icon:hover {
-    color: rgb(195, 194, 194);
-    font-size: 20px;
+    color: rgb(204, 198, 198);
+    font-size: 18px;
     cursor: pointer;
 }

@@ -13,7 +13,8 @@ class AddTodoModel extends React.Component {
   state = {
     data: {
       title: '',
-      description: ''
+      description: '',
+      
     }
   };
 
