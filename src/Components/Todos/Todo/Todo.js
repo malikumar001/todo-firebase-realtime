@@ -4,7 +4,6 @@ import './Todo.css';
 import Collapseable from '../../Collapseable/Collapseable';
 import { connect } from "react-redux";
 import * as actions from '../../../Actions/index';
-
 class Todo extends Component {
 state = {
   completed: false
@@ -28,17 +27,24 @@ handleCheck = (e) => {
 
               <p>
                 <label>
+               
                   <input 
                     type="checkbox"
                     name="completed" 
                     onChange={this.handleCheck}
                     checked={this.props.todo.completed}
                     className="filled-in blue-text text-darken-2" />
+
+
                     {this.props.todo.completed ? ( 
+                    <span>
                     <span id="title-todo-line">{todo.title}</span>
+                    <span class="new  badge" data-badge-caption="Completed"></span>
+                    </span>
                  ) : (
                     <span>
                       <span id="title-todo">{todo.title}</span>
+                      
                     </span>
 
                  )}
