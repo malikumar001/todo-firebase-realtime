@@ -22,7 +22,7 @@ handleCheck = (e) => {
     const todo = this.props.todo;
     return (
       <div className="todo-container">
-        <div className="sub-container">
+        <div className="sub-container" style={{background: todo.completed ? '#757575' : ''}}>
           <div className="flex-container">
             <div>
 
