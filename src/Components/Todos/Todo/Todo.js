@@ -47,7 +47,7 @@ handleCheck = (e) => {
                   
                   {todo.completed ?  (
                     
-                    <a onClick={() => this.props.handleDelete(todo.id)} class="waves-effect waves-light btn-small">Remove todo</a>
+                    <a onClick={() => this.props.handleDelete(todo.id)} class="waves-effect waves-light btn-small"><FontAwesomeIcon icon="trash-alt"/>Remove todo</a>
                     
                     ) : ( 
                   

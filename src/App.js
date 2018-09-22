@@ -7,9 +7,9 @@ import {connect} from 'react-redux';
 
 import * as actions from './Actions/index';
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faBars, faClock, faHourglassHalf, faTimes, faAngleDown, faAngleUp,  faCalendarAlt } from '@fortawesome/free-solid-svg-icons'
+import { faBars, faClock, faHourglassHalf, faTimes, faAngleDown, faAngleUp,  faCalendarAlt, faTrash, faTrashAlt } from '@fortawesome/free-solid-svg-icons'
 
-library.add(faBars, faClock, faHourglassHalf, faTimes, faAngleDown, faAngleUp, faCalendarAlt)
+library.add(faBars, faClock, faHourglassHalf, faTimes, faAngleDown, faAngleUp, faCalendarAlt, faTrashAlt)
 
 
 class App extends Component {
