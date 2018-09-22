@@ -67,9 +67,8 @@ console.log(id);
     if (Object.keys(errors).length === 0) {
 
       const { addToDo } = this.props
-      const id = this.props.data.length;
 
-      addToDo(data, id);
+      addToDo(data);
 
       this.setState({ showAddMessage: true, open: false });
 

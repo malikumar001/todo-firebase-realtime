@@ -5,7 +5,7 @@ body {
 
 @media screen and (max-width: 992px) {
     #title-todo {
-        font-size: 20px;
+        font-size: 15px;
         color: #fff;
     }
 
@@ -16,7 +16,7 @@ body {
      }
 
      #title-todo-line {
-        font-size: 20px;
+        font-size: 15px;
         color: rgb(165, 165, 165);
         text-decoration: line-through;
         text-decoration-style: solid;
@@ -26,18 +26,15 @@ body {
 
 @media screen and (min-width: 992px) {
     #title-todo {
-        font-size: 30px;
+        font-size: 25px;
         color: #fff;
+        font-weight: bold;
     }
 
-    .text{
-        margin-left: 5px;
-         font-size: 15px;
-         color: #fff;
-     }
+    
 
      #title-todo-line {
-        font-size: 30px;
+        font-size: 25px;
         color: rgb(165, 165, 165);
         text-decoration: line-through;
         text-decoration-style: solid;

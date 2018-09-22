@@ -12,13 +12,15 @@ state = {
 
 
 handleCheck = (e) => {
-  debugger;
 
-  this.setState({completed : !this.state.completed});
+
+  // this.setState({completed : !this.state.completed});
+  
+  
+  // this.props.UpdateTodo(this.props.todo, this.state.completed);
+  this.props.UpdateTodo(this.props.todo);
   debugger;
   
-  this.props.UpdateTodo(this.props.todo, this.state.completed);
-  debugger;
     }
 
 

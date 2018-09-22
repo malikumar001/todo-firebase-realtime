@@ -19,7 +19,8 @@ export const fetchTodos = () => dispatch => {
 }
 
 
-export const addToDo = (data, id) => dispatch => {
+export const addToDo = (data) => dispatch => {
+    const id = Math.floor(Math.random() * 100000342) + 'A*@DUDB'
     const todoRef = db.collection("todos")
     todoRef.doc(`todo_${id}`).set({
         id,
@@ -40,13 +41,13 @@ export const RemoveTodo = (id) => dispatch => {
 
 
 
-export const UpdateTodo = (data, value) => dispatch => {
+export const UpdateTodo = (data) => dispatch => {
         debugger;
     db.collection("todos").doc(`todo_${data.id}`).set({
         id: data.id,
         title: data.title,
         description: data.description,
-        completed: value
+        completed: !data.completed
     })
         .then(function () {
             console.log("Document successfully written!");
