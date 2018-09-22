@@ -13,13 +13,7 @@ state = {
 
 handleCheck = (e) => {
 
-
-  // this.setState({completed : !this.state.completed});
-  
-  
-  // this.props.UpdateTodo(this.props.todo, this.state.completed);
   this.props.UpdateTodo(this.props.todo);
-  debugger;
   
     }
 
@@ -45,17 +39,19 @@ handleCheck = (e) => {
                  ) : (
                     <span>
                       <span id="title-todo">{todo.title}</span>
-
                     </span>
-
-                    
-
 
                  )}
                 </label>
               </p>
                   
-                  {todo.completed ?  undefined :  <span className="description"><Collapseable description={todo.description} /></span> }
+                  {todo.completed ?  (
+                    
+                    <a onClick={() => this.props.handleDelete(todo.id)} class="waves-effect waves-light btn-small">Remove todo</a>
+                    
+                    ) : ( 
+                  
+                  <span className="description"><Collapseable description={todo.description} /></span>) }
             </div>
 
             <div className="flexer"></div>
