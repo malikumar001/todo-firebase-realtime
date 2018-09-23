@@ -5,7 +5,6 @@ import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import withMobileDialog from '@material-ui/core/withMobileDialog';
-import TodoBtnUpdate from './TodoBtnUpdate';
 
 
 class AddTodoModelUpdate extends React.Component {
@@ -42,7 +41,7 @@ this.setState({ myData: data }, () => {
   }
 
   render() {
-    const { fullScreen, data } = this.props;
+    const { fullScreen } = this.props;
     const {  myData } = this.state;
     
     return (

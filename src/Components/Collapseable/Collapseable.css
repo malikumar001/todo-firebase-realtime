@@ -8,3 +8,12 @@
     color: rgb(195, 194, 194);
     cursor: pointer;
 }
+
+.button-description {
+    background: brown;
+}
+
+
+.button-description:hover {
+    background: rgb(173, 62, 62);
+}

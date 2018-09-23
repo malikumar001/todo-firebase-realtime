@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import './Todo.css';
 import Collapseable from '../../Collapseable/Collapseable';
 import { connect } from "react-redux";
@@ -54,11 +53,11 @@ class Todo extends Component {
                     <div className="flexer"></div>
                 { todo.completed ? (
 
-                      <span onClick={() => this.props.handleDelete(todo.id)} class="new badge delete-on-complete #e53935 red darken-1" data-badge-caption="Remove"></span>
+                      <span onClick={() => this.props.handleDelete(todo.id)} className="new badge delete-on-complete #e53935 red darken-1" data-badge-caption="Remove"></span>
 
                 ) 
                   
-                  : <button onClick={() => this.props.handleClickOpen(todo)} class="button-edit button">Edit</button> }
+                  : <button onClick={() => this.props.handleClickOpen(todo)} className="button-edit button">Edit</button> }
                 <div></div>
                 { todo.completed ? undefined : <button onClick={() => this.props.handleDelete(todo.id)} class="button-delete button">Delete</button> }
                

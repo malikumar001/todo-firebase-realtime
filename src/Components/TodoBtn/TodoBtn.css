@@ -1,3 +1,37 @@
+@media screen and (max-width: 992px) {
+    
+    .todoAdd-btn {
+        display: none
+    }
+
+    .button-add {
+        position: absolute;
+        right: 0;
+        top: 0;
+        margin: 18px;
+        background: green;
+    }
+
+    .button-add:hover {
+        background: rgb(63, 184, 63);
+       
+    }
+}
+
+@media screen and (min-width: 992px) {
+    
+    
+    .button-add {
+        display: none;
+
+    }
+
+
+}
+
+
+
+
 .todoAdd-btn {
     position: fixed;
     bottom: 0;
