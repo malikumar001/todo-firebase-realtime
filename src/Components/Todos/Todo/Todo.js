@@ -61,13 +61,7 @@ class Todo extends Component {
                   : <button onClick={() => this.props.handleClickOpen(todo)} class="button-edit button">Edit</button> }
                 <div></div>
                 { todo.completed ? undefined : <button onClick={() => this.props.handleDelete(todo.id)} class="button-delete button">Delete</button> }
-                <div></div>
-                
-
-
-
-
-
+               
           </div>
           { todo.completed ? undefined : <div><Collapseable description={todo.description} /></div> }
 

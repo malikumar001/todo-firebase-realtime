@@ -1,16 +1,10 @@
 .description-icon {
     color: #fff;
-    font-size: 25px;
+    font-size: 20px;
     margin-left: 18px;
 }
 
 .description-icon:hover {
     color: rgb(195, 194, 194);
     cursor: pointer;
-
-}
-
-.des {
-    font-size: 18px;
-    color: rgb(255, 255, 255);
 }

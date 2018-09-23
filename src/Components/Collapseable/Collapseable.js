@@ -21,17 +21,6 @@ class Collapseable extends Component {
 
 
  <Collapsible data={data} />
-   
-   {/* <Collapsible triggerDisabled={false}
-   
-   transitionTime={200}
-   transitionCloseTime={200}
-   trigger={<FontAwesomeIcon icon='angle-down' className="description-icon" />}
-   triggerWhenOpen={<FontAwesomeIcon icon='angle-up' className="description-icon" />}
->
-        <p className="des">{this.props.description} 
-        </p>
-      </Collapsible> */}
 
       </div>
     );

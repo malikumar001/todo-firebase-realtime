@@ -32,7 +32,7 @@ class Todos extends Component {
   }
 
 
-  
+
 
 
   handleDelete = (id) => {
@@ -81,7 +81,7 @@ class Todos extends Component {
     const { addToDo } = this.props
     addToDo(data);
     this.setState({ showUpdateMessage: true, openUpdateModel: false });
-    
+
   }
 
   handleFormClose = () => {
@@ -104,23 +104,10 @@ class Todos extends Component {
 
   handleClickOpenUpdate = (data) => {
     this.setState({ openUpdateModel: true, updatedData: data });
-    
+
   };
 
-
   render() {
-    const data = [{
-      id: 'todo-23',
-      title: 'Exercising time is best!',
-      description: 'Every thing is good with exercise',
-      completed: false
-    },
-    {
-      id: 'todo-23',
-      title: 'Cooking time is the best and good!',
-      description: 'This is demo and somethign happening!',
-      completed: false
-    }]
 
     this.props.fetchTodos();
     return (
@@ -129,10 +116,8 @@ class Todos extends Component {
 
         {
           this.props.data.length !== 0 ? (
-            // data.length !== 0 ? (
 
-              // data.map(todo => <Todo key={todo._id}
-                this.props.data.map(todo => <Todo key={todo._id}
+            this.props.data.map(todo => <Todo key={todo._id}
               todo={todo}
               handleClickOpen={this.handleClickOpenUpdate}
               handleDelete={this.handleDelete}
@@ -142,19 +127,19 @@ class Todos extends Component {
           ) : <Loader />
         }
         <AddTodoModel handleAdd={this.handleAdd} open={this.state.open}
-          
+
           handleClickOpen={this.handleClickOpen}
           handleFormClose={this.handleFormClose}
 
         />
 
-        { this.state.openUpdateModel ? (<AddTodoModelUpdate open={this.state.openUpdateModel}
-               data={this.state.updatedData}
-               handleFormClose={this.handleFormClose}
-               handleUpdateAdd={this.handleUpdateAdd}
-        />)  : undefined
-      
-      }
+        {this.state.openUpdateModel ? (<AddTodoModelUpdate open={this.state.openUpdateModel}
+          data={this.state.updatedData}
+          handleFormClose={this.handleFormClose}
+          handleUpdateAdd={this.handleUpdateAdd}
+        />) : undefined
+
+        }
 
         <Message showMessage={this.state.showDeleteMessage}
           handleClose={this.handleClose}
@@ -172,10 +157,10 @@ class Todos extends Component {
           removed="Please enter both TITLE and DESCRIPTION"
         />
 
-<Message  showMessage={this.state.showUpdateMessage}
+        <Message showMessage={this.state.showUpdateMessage}
           handleClose={this.handleClose}
           removed="Todo updated successfully!"
-     />
+        />
 
       </div>
     );
