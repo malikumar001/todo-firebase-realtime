@@ -20,14 +20,16 @@ export const fetchTodos = () => dispatch => {
 
 
 export const addToDo = (data) => dispatch => {
-    const id = Math.floor(Math.random() * 100000342) + 'A*@DUDB'
+    debugger;
     const todoRef = db.collection("todos")
-    todoRef.doc(`todo_${id}`).set({
-        id,
+    todoRef.doc(`todo_${data.id}`).set({
+        id: data.id,
         title: data.title,
         description: data.description,
         completed: false
     });
+    debugger;
+
 };
 
 

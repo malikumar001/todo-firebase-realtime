@@ -1,17 +1,28 @@
 import React, { Component } from 'react';
-import Collapsible from 'react-collapsible';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import Collapsible from 'react-simple-collapsible-element';
 
 import './Collapseable.css';
 
 class Collapseable extends Component {
 
   render() {
+    const data = [
+      {
+   
+   title: <FontAwesomeIcon icon='angle-down' className='description-icon' />,
+   content: <p>{this.props.description}</p>,
+   contentStyle: { fontSize: '20px', color: '#fff', marginLeft: '10px' }, 
+      }
+    ];
 
     return (
       <div>
+
+
+ <Collapsible data={data} />
    
-   <Collapsible triggerDisabled={false}
+   {/* <Collapsible triggerDisabled={false}
    
    transitionTime={200}
    transitionCloseTime={200}
@@ -20,7 +31,7 @@ class Collapseable extends Component {
 >
         <p className="des">{this.props.description} 
         </p>
-      </Collapsible>
+      </Collapsible> */}
 
       </div>
     );

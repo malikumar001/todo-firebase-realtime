@@ -5,42 +5,46 @@ import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import withMobileDialog from '@material-ui/core/withMobileDialog';
-import TodoBtn from '../TodoBtn/TodoBtn';
+import TodoBtnUpdate from './TodoBtnUpdate';
 
 
-
-class AddTodoModel extends React.Component {
-  state = {
-    data: {
-      title: '',
-      description: '',
-      id: Math.floor(Math.random() * 100000342) + 'A*@DUDB'
-
-    }
+class AddTodoModelUpdate extends React.Component {
+  
+    state = {
+        name: '',
+        myData: []
   };
 
   onChange = (e) => {
-    this.setState({ data: { ...this.state.data, [e.target.name]: e.target.value } });
+    this.setState({ myData: { ...this.state.myData, [e.target.name]: e.target.value } });
   }
 
   handleClose = () => {
     this.setState({ open: false });
   };
 
-  handleAdd = () => {
-    this.props.handleAdd(this.state.data);
+componentDidMount = () => {
+    const { data } = this.props;
+
+
+this.setState({ myData: data }, () => {
+  console.log(this.state.myData, 'data');
+}); 
+
+}
+
+   handleAdd = () => {
+    this.props.handleUpdateAdd(this.state.myData);
     this.setState({
-      data: {
-        title: '',
-        description: ''
-      }
+      myData: ''
     })
 
   }
 
   render() {
-    const { fullScreen } = this.props;
-
+    const { fullScreen, data } = this.props;
+    const {  myData } = this.state;
+    
     return (
       <div>
 
@@ -50,7 +54,7 @@ class AddTodoModel extends React.Component {
           onClose={this.handleClose}
           aria-labelledby="responsive-dialog-title"
         >
-          <DialogTitle id="responsive-dialog-title">{"What do you want to do today?"}</DialogTitle>
+          <DialogTitle id="responsive-dialog-title">{"Update Title and description!"}</DialogTitle>
 
           <form>
 
@@ -60,8 +64,7 @@ class AddTodoModel extends React.Component {
                   <div class="row">
                     <div class="input-field col s12 ">
                       <i class="material-icons prefix blue-text">title</i>
-                      <input type="text" onChange={this.onChange} value={this.state.data.title} name="title" id="autocomplete-input" class="blue-text autocomplete" />
-                      <label for="autocomplete-input">Enter todo</label>
+                      <input  type="text" onChange={this.onChange} value={myData.title} name="title" id="autocomplete-input" class="blue-text autocomplete" />
                     </div>
                   </div>
                 </div>
@@ -70,8 +73,7 @@ class AddTodoModel extends React.Component {
                   <div class="row">
                     <div class="input-field col s12 ">
                       <i class="material-icons prefix blue-text">description</i>
-                      <input type="text" onChange={this.onChange} value={this.state.data.description} name="description" id="autocomplete-input" class="blue-text autocomplete" />
-                      <label for="autocomplete-input">Enter short description</label>
+                      <input type="text" onChange={this.onChange} value={myData.description} name="description" id="autocomplete-input" class="blue-text autocomplete" />
                     </div>
                   </div>
                 </div>
@@ -92,14 +94,13 @@ class AddTodoModel extends React.Component {
 
           </form>
         </Dialog>
-        <TodoBtn openPopup={this.props.handleClickOpen} />
-      </div>
+          </div>
     );
   }
 }
 
-AddTodoModel.propTypes = {
+AddTodoModelUpdate.propTypes = {
   fullScreen: PropTypes.bool.isRequired,
 };
 
-export default withMobileDialog()(AddTodoModel);
+export default withMobileDialog()(AddTodoModelUpdate);

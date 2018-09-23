@@ -4,6 +4,9 @@ import Todo from './Todo/Todo';
 import Message from '../Message/Message';
 import AddTodoModel from '../AddTodoModel/AddTodoModel';
 
+import AddTodoModelUpdate from '../Update/AddTodoModelUpdate';
+
+
 import './Todos.css';
 
 import { connect } from "react-redux";
@@ -14,10 +17,12 @@ class Todos extends Component {
 
   state = {
     array: [],
+    updatedData: '',
     showDeleteMessage: false,
     showAddMessage: false,
     showErrorMessage: false,
-    // showDeleteMessage: false,
+    showUpdateMessage: false,
+    openUpdateModel: false,
     open: false,
     errors: {}
   };
@@ -27,23 +32,15 @@ class Todos extends Component {
   }
 
 
-
-
-// handleUpdate = (todo, completed) => {
-//   debugger
-   
-//      debugger
-// }
-
-
+  
 
 
   handleDelete = (id) => {
-    
-console.log(id);
-   this.props.RemoveTodo(id);
-   
-   this.setState({ showDeleteMessage: true });
+
+    console.log(id);
+    this.props.RemoveTodo(id);
+
+    this.setState({ showDeleteMessage: true });
 
     // const todos = [...this.state.todos];
     // const undeletedTodos = todos.filter(todo => todo._id !== id);
@@ -79,11 +76,16 @@ console.log(id);
 
   }
 
-
-
+  handleUpdateAdd = data => {
+    console.log(data);
+    const { addToDo } = this.props
+    addToDo(data);
+    this.setState({ showUpdateMessage: true, openUpdateModel: false });
+    
+  }
 
   handleFormClose = () => {
-    this.setState({ open: false });
+    this.setState({ open: false, openUpdateModel: false });
 
   }
 
@@ -92,7 +94,7 @@ console.log(id);
       return;
     }
 
-    this.setState({ showAddMessage: false, showDeleteMessage: false, showErrorMessage: false });
+    this.setState({ showAddMessage: false, showDeleteMessage: false, showErrorMessage: false, showUpdateMessage: false });
   };
 
   handleClickOpen = () => {
@@ -100,7 +102,26 @@ console.log(id);
   };
 
 
+  handleClickOpenUpdate = (data) => {
+    this.setState({ openUpdateModel: true, updatedData: data });
+    
+  };
+
+
   render() {
+    const data = [{
+      id: 'todo-23',
+      title: 'Exercising time is best!',
+      description: 'Every thing is good with exercise',
+      completed: false
+    },
+    {
+      id: 'todo-23',
+      title: 'Cooking time is the best and good!',
+      description: 'This is demo and somethign happening!',
+      completed: false
+    }]
+
     this.props.fetchTodos();
     return (
       <div>
@@ -108,21 +129,32 @@ console.log(id);
 
         {
           this.props.data.length !== 0 ? (
+            // data.length !== 0 ? (
 
-            this.props.data.map(todo => <Todo key={todo._id}
+              // data.map(todo => <Todo key={todo._id}
+                this.props.data.map(todo => <Todo key={todo._id}
               todo={todo}
+              handleClickOpen={this.handleClickOpenUpdate}
               handleDelete={this.handleDelete}
-              handleUpdate={this.handleUpdate}
             />)
 
 
           ) : <Loader />
         }
         <AddTodoModel handleAdd={this.handleAdd} open={this.state.open}
+          
           handleClickOpen={this.handleClickOpen}
           handleFormClose={this.handleFormClose}
 
         />
+
+        { this.state.openUpdateModel ? (<AddTodoModelUpdate open={this.state.openUpdateModel}
+               data={this.state.updatedData}
+               handleFormClose={this.handleFormClose}
+               handleUpdateAdd={this.handleUpdateAdd}
+        />)  : undefined
+      
+      }
 
         <Message showMessage={this.state.showDeleteMessage}
           handleClose={this.handleClose}
@@ -140,7 +172,10 @@ console.log(id);
           removed="Please enter both TITLE and DESCRIPTION"
         />
 
-       
+<Message  showMessage={this.state.showUpdateMessage}
+          handleClose={this.handleClose}
+          removed="Todo updated successfully!"
+     />
 
       </div>
     );
