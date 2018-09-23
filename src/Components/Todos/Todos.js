@@ -143,23 +143,27 @@ class Todos extends Component {
 
         <Message showMessage={this.state.showDeleteMessage}
           handleClose={this.handleClose}
-          removed="Todo Removed Successfully!"
+          message="Todo Removed Successfully!"
+          color="error"
         />
 
 
         <Message showMessage={this.state.showAddMessage}
           handleClose={this.handleClose}
-          removed="Todo Added Successfully!"
+          message="Todo Added Successfully!"
+          color="success"
         />
 
         <Message showMessage={this.state.showErrorMessage}
           handleClose={this.handleClose}
-          removed="Please enter both TITLE and DESCRIPTION"
+          message="Please enter both TITLE and DESCRIPTION"
+          color="info"
         />
 
         <Message showMessage={this.state.showUpdateMessage}
           handleClose={this.handleClose}
-          removed="Todo updated successfully!"
+          message="Todo updated successfully!"
+          color="success"
         />
 
       </div>
