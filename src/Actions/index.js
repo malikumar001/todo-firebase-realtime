@@ -20,7 +20,6 @@ export const fetchTodos = () => dispatch => {
 
 
 export const addToDo = (data) => dispatch => {
-    debugger;
     const todoRef = db.collection("todos")
     todoRef.doc(`todo_${data.id}`).set({
         id: data.id,
@@ -28,7 +27,6 @@ export const addToDo = (data) => dispatch => {
         description: data.description,
         completed: false
     });
-    debugger;
 
 };
 
@@ -44,7 +42,7 @@ export const RemoveTodo = (id) => dispatch => {
 
 
 export const UpdateTodo = (data) => dispatch => {
-        debugger;
+        
     db.collection("todos").doc(`todo_${data.id}`).set({
         id: data.id,
         title: data.title,

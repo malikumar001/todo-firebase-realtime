@@ -19,7 +19,7 @@ state = {
     ];
 
     return (
-      <div>
+      <div onClick={() => this.setState({show: !this.state.show})}>
 
 
  <Collapsible data={data} />
